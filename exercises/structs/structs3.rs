@@ -26,12 +26,16 @@ impl Package {
         }
     }
 
-    fn is_international(&self) -> ??? {
+    fn is_international(&self) -> bool {
         // Something goes here...
+        if self.recipient_country != self.sender_country {
+            return true;
+        }
+        return false;
     }
 
-    fn get_fees(&self, cents_per_gram: i32) -> ??? {
-        // Something goes here...
+    fn get_fees(&self, cents_per_gram: i32) -> i32 {
+        return self.weight_in_grams * cents_per_gram;
     }
 }
 
